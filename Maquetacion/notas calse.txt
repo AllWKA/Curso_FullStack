@@ -1,0 +1,32 @@
+maquetar: 
+
+	input[type="lqsea"]{
+		
+	}
+	primeros pasos: 
+		separar cajas segun su nivel , de grande a peque�o.
+		identificar elementos contenedores de un conjunto de elementos.
+		identidicar elementos con contenido final.
+
+	orden de menos a mas importante para un .css :
+		
+		etiqueta
+		clase
+		id
+		hijos
+		hijos directo
+		etc
+
+	#una vez definida la estructura, maquetar los componentes comunes
+	#Css se escribe de menos a mas especifico
+	#Navegador aplica atributos sin preguntar
+
+	Flex : en el eje principal ocuparan lo necesario, 
+		   en el secundario lo ocuparan todo
+
+	#CALC() -> CSS
+
+	SEMANTICA SIEMPRE MEJOR
+
+		ejemplo: reordenar un elemento, definir todas las posiciones de los objetos 
+				 para ganar en semantica
