@@ -44,37 +44,69 @@ var movies = [
 //pedir pista
 var actualHintPosition = 0;
 //introducir letra y comparar
-var lettersDone = [];
-var rightLetters = "";
-var moviePosition = pickingMovie(movies);
-var playerMovie = [];
-var failedLetters = [];
+var lettersDone;
+var rightLetters;
+var moviePosition;
+var playerMovie;
+var failedLetters;
+var actualSecs;
+let hearts;
+let intentosRestantes;
 
-let hearts = document.getElementsByClassName('heart');
-let intentosRestantes = hearts.length;
-
-initialize()
+initialize();
 
 function initialize() {
-    pickingMovie(movies);
+    actualHintPosition = 0;
+    //introducir letra y comparar
+    lettersDone = [];
+    rightLetters = "";
+    moviePosition = pickingMovie(movies);
+    playerMovie = [];
+    failedLetters = [];
+    actualSecs = 0;
+    hearts = document.getElementsByClassName('heart');
+    intentosRestantes = hearts.length;
+    document.getElementById("isaac").setAttribute('src', 'images/pixil-frame-0 (6).png');
+    restoreButtons();
+    restoreLife();
     fillPlayerMovie();
     fillRightLetters();
     counter();
 }
-
+function restoreLife() {
+    for (let i = 0; i < hearts.length; i++) {
+        hearts[i].setAttribute('src', "./images/full-heart.png");
+    }
+}
+function restoreButtons() {
+    var buttons = document.getElementById("buttons").childNodes;
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].nodeType != 3) {
+            buttons[i].style.backgroundColor = '#CB8A7C';
+            buttons[i].style.boxShadow = '0 6px #ab3c3c';
+            buttons[i].style.color = "#fff"
+        }
+    }
+}
+//peticion get http
+function getMovieFromApi(movieName) {
+    fetch('http://www.omdbapi.com/?apikey=ad4c5291&t=' + movieName)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            console.log(myJson);
+        });
+}
 function counter() {
-    var secs = 59;
-    var actualSecs = 0;
     var counter = setInterval(() => {
-        if (actualSecs == secs) {
+        if (actualSecs == 59) {
             clearInterval(counter);
         }
         showCounter(actualSecs)
         actualSecs++;
     }, 1000);
 }
-
-
 function showCounter(actualSecs) {
     if (actualSecs != 59) {
         if (59 - actualSecs < 10) {
@@ -86,7 +118,6 @@ function showCounter(actualSecs) {
         document.getElementById("counter").innerHTML = "TIME OUT!!!!!";
     }
 }
-
 // Eleccion Aleatoria de Peli
 function pickingMovie(movies) {
     let chosen = Math.floor(Math.random() * 10);
@@ -119,6 +150,97 @@ function showHint() {
         document.getElementById("hints").innerHTML += "All Hints Shown"
         actualHintPosition++;
     }
+}
+
+function getKeyPressed(event) {
+    var x = event.which || event.keyCode;
+    switch (x) {
+        case 97:
+            searchLetter("a")
+            break;
+        case 98:
+            searchLetter("b")
+            break;
+        case 99:
+            searchLetter("c")
+            break;
+        case 100:
+            searchLetter("d")
+            break;
+        case 101:
+            searchLetter("e")
+            break;
+        case 102:
+            searchLetter("f")
+            break;
+        case 103:
+            searchLetter("g")
+            break;
+        case 104:
+            searchLetter("h")
+            break;
+        case 105:
+            searchLetter("i")
+            break;
+        case 106:
+            searchLetter("j")
+            break;
+        case 107:
+            searchLetter("k")
+            break;
+        case 108:
+            searchLetter("l")
+            break;
+        case 109:
+            searchLetter("m")
+            break;
+        case 110:
+            searchLetter("n")
+            break;
+        case 241:
+            searchLetter("ñ")
+            break;
+        case 111:
+            searchLetter("o")
+            break;
+        case 112:
+            searchLetter("p")
+            break;
+        case 113:
+            searchLetter("q")
+            break;
+        case 114:
+            searchLetter("r")
+            break;
+        case 115:
+            searchLetter("s")
+            break;
+        case 116:
+            searchLetter("t")
+            break;
+        case 117:
+            searchLetter("u")
+            break;
+        case 118:
+            searchLetter("v")
+            break;
+        case 119:
+            searchLetter("w")
+            break;
+        case 120:
+            searchLetter("x")
+            break;
+        case 121:
+            searchLetter("y")
+            break;
+        case 122:
+            searchLetter("z")
+            break;
+        default:
+            alert("eso no es una letra mongolin")
+            break;
+    }
+
 }
 
 function searchLetter(letter) {
@@ -190,7 +312,7 @@ async function fillPlayerMovie() {
 function showPlayerMovie() {
     document.getElementById("playerMovie").innerHTML = "";
     for (let i = 0; i < playerMovie.length; i++) {
-        document.getElementById("playerMovie").innerHTML += playerMovie[i]
+        document.getElementById("playerMovie").innerHTML += playerMovie[i];
     }
 }
 
@@ -240,8 +362,10 @@ function winner() {
 
 
 function loser() {
+    document.getElementById("movieResult").innerHTML = "La Película era: "
     $(document).ready(function () {
         $("#modalLoser").modal('show');
+        document.getElementById("movieResult").innerHTML += getMovieName(moviePosition);
     });
 }
 

@@ -1,0 +1,4 @@
+poner js en el head impide que cargue el html, a google no le gusta, 
+si esta al final, carga en paralelo, a google le gusta.
+
+"===" --> comprueba el tipo tambien.

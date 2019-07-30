@@ -7,6 +7,7 @@ body{
    margin: 0;
    font-family: 'Nunito', sans-serif;
 }
+
 header{
    background-color: #6c4338;
    /*
@@ -74,7 +75,6 @@ main{
    align-items: center;
    margin-left: 15px;
    margin-right: 15px;
-   padding: 45px;
 }
 /* #letras button{
    margin-left: 45px;
@@ -85,6 +85,11 @@ main{
    -webkit-border-radius: 83px;
    border: 5px solid darkred;
 } */
+
+.movieResult{
+   color: rgb(180, 147, 101);
+   margin-left: 2%;
+}
 footer{
    background-color: #6c4338;
    height: 15%;
@@ -137,10 +142,24 @@ footer{
 .modal-backdrop.show {
    opacity: 0.8;
 }
-
-
-
-
+.body-class{
+   display: flex;
+   /* flex-direction: column; */
+}
+.buttons-container{
+   display: flex;
+}
+.letters-container{
+   display: flex;
+   flex-direction: column;
+}
+@font-face {
+  font-family: isaacFont;
+  src: url(./fonts/Lacquer-Regular.ttf);
+}
+*{
+   font-family: isaacFont;
+}
 /* Experimentando con Botones CSS */
 .btn {
 	border: none;
@@ -151,7 +170,7 @@ footer{
 	cursor: pointer;
 	padding: 25px 80px;
 	display: inline-block;
-	margin: 55px 20px;
+	margin: 2% 20px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
