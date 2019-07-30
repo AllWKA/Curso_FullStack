@@ -147,12 +147,13 @@ function addFailedLetter(letter) {
 }
 
 function findCoincidences(letter) {
-    var movieName = getMovieName(0).toLowerCase();
+    var movieName = getMovieName(moviePosition).toLowerCase();
     for (let i = 0; i < movieName.length; i++) {
         if (letter.toLowerCase() == movieName.charAt(i)) {
             playerMovie[i] = movieName.charAt(i);
         }
     }
+    showPlayerMovie();
 }
 
 function fillRightLetters() {
@@ -178,24 +179,19 @@ async function checkWin() {
 async function fillPlayerMovie() {
     for (let i = 0; i < getMovieName(moviePosition).length; i++) {
         if (getMovieName(moviePosition).charAt(i) != " ") {
-            playerMovie[i] = "/";
+            playerMovie[i] = "_";
         } else {
-            playerMovie[i] = "-"
+            playerMovie[i] = " "
         }
     }
     showPlayerMovie();
 }
 
 function showPlayerMovie() {
-    var result = "";
+    document.getElementById("playerMovie").innerHTML = "";
     for (let i = 0; i < playerMovie.length; i++) {
-        if (playerMovie[i] == "/") {
-            result += "-"
-        } else {
-            result += " "
-        }
+        document.getElementById("playerMovie").innerHTML += playerMovie[i]
     }
-    document.getElementById("playerMovie").innerHTML = result;
 }
 
 function getMovieName(position) {
@@ -252,14 +248,14 @@ function loser() {
 let conteo = 1;
 
 function paintingIsaac() {
-    
+
     let isaac = document.getElementById("isaac");
     let pathImageIsaac = '';
 
-    
+
     if (conteo <= 5) {
-        pathImageIsaac = 'images/isaac-'+conteo+'.png';
-        isaac.setAttribute('src',pathImageIsaac);
+        pathImageIsaac = 'images/isaac-' + conteo + '.png';
+        isaac.setAttribute('src', pathImageIsaac);
         conteo++;
     }
 }
@@ -269,12 +265,12 @@ function paintingIsaac() {
 
 let playerStats = {
 
-    pistasConsumidas : actualHintPosition,
-    peli : moviePosition
+    pistasConsumidas: actualHintPosition,
+    peli: moviePosition
 
 }
 
-localStorage.setItem('stats',JSON.stringify(playerStats));
+localStorage.setItem('stats', JSON.stringify(playerStats));
 
 /* Print the letter of the button the player pressed on the screen*/
 function reply_click(clicked_id) {
