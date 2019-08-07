@@ -13,11 +13,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="./dist/main.js"></script>
     <title>Ahorcado</title>
-    <script>
-    // $('.modal-backdrop').hide(); 
 
-    </script>
 </head>
 
 <body onkeypress="getKeyPressed(event)">
@@ -33,9 +33,7 @@
         <div>
             <h1 class="letters-title" id="counter">01:00</h1>
         </div>
-        <div>
-            <button id="pistas" onclick="showHint()"> HINT </button>
-        </div>
+        <button id="pistas">hint</button>
     </header>
     <main>
         <div id="zonacentral" class="body-class">
@@ -44,50 +42,51 @@
             </div>
             <div id="letras" class="letters-container">
                 <div id="letters">
-                    <h2 class="letters-title"> LETTERS</h2>
+                    <h2 class="letters-title">LETTERS</h2>
                 </div>
                 <div id="buttons" class="buttons-container">
-                    <button id="a" class="btn btn-style" onclick="reply_click(this.id)">a</button>
-                    <button id="b" class="btn btn-style" onclick="reply_click(this.id)">b</button>
-                    <button id="c" class="btn btn-style" onclick="reply_click(this.id)">c</button>
-                    <button id="d" class="btn btn-style" onclick="reply_click(this.id)">d</button>
-                    <button id="e" class="btn btn-style" onclick="reply_click(this.id)">e</button>
-                    <button id="f" class="btn btn-style" onclick="reply_click(this.id)">f</button>
-                    <button id="g" class="btn btn-style" onclick="reply_click(this.id)">g</button>
-                    <button id="h" class="btn btn-style" onclick="reply_click(this.id)">h</button>
-                    <button id="i" class="btn btn-style" onclick="reply_click(this.id)">i</button>
-                    <button id="j" class="btn btn-style" onclick="reply_click(this.id)">j</button>
-                    <button id="k" class="btn btn-style" onclick="reply_click(this.id)">k</button>
-                    <button id="l" class="btn btn-style" onclick="reply_click(this.id)">l</button>
-                    <button id="m" class="btn btn-style" onclick="reply_click(this.id)">m</button>
-                    <button id="n" class="btn btn-style" onclick="reply_click(this.id)">n</button>
-                    <button id="ñ" class="btn btn-style" onclick="reply_click(this.id)">ñ</button>
-                    <button id="o" class="btn btn-style" onclick="reply_click(this.id)">o</button>
-                    <button id="p" class="btn btn-style" onclick="reply_click(this.id)">p</button>
-                    <button id="q" class="btn btn-style" onclick="reply_click(this.id)">q</button>
-                    <button id="r" class="btn btn-style" onclick="reply_click(this.id)">r</button>
-                    <button id="s" class="btn btn-style" onclick="reply_click(this.id)">s</button>
-                    <button id="t" class="btn btn-style" onclick="reply_click(this.id)">t</button>
-                    <button id="u" class="btn btn-style" onclick="reply_click(this.id)">u</button>
-                    <button id="v" class="btn btn-style" onclick="reply_click(this.id)">v</button>
-                    <button id="w" class="btn btn-style" onclick="reply_click(this.id)">w</button>
-                    <button id="x" class="btn btn-style" onclick="reply_click(this.id)">x</button>
-                    <button id="y" class="btn btn-style" onclick="reply_click(this.id)">y</button>
-                    <button id="z" class="btn btn-style" onclick="reply_click(this.id)">z</button>
+                    <button id="a" class="btn btn-style">a</button>
+                    <button id="b" class="btn btn-style">b</button>
+                    <button id="c" class="btn btn-style">c</button>
+                    <button id="d" class="btn btn-style">d</button>
+                    <button id="e" class="btn btn-style">e</button>
+                    <button id="f" class="btn btn-style">f</button>
+                    <button id="g" class="btn btn-style">g</button>
+                    <button id="h" class="btn btn-style">h</button>
+                    <button id="i" class="btn btn-style">i</button>
+                    <button id="j" class="btn btn-style">j</button>
+                    <button id="k" class="btn btn-style">k</button>
+                    <button id="l" class="btn btn-style">l</button>
+                    <button id="m" class="btn btn-style">m</button>
+                    <button id="n" class="btn btn-style">n</button>
+                    <button id="ñ" class="btn btn-style">ñ</button>
+                    <button id="o" class="btn btn-style">o</button>
+                    <button id="p" class="btn btn-style">p</button>
+                    <button id="q" class="btn btn-style">q</button>
+                    <button id="r" class="btn btn-style">r</button>
+                    <button id="s" class="btn btn-style">s</button>
+                    <button id="t" class="btn btn-style">t</button>
+                    <button id="u" class="btn btn-style">u</button>
+                    <button id="v" class="btn btn-style">v</button>
+                    <button id="w" class="btn btn-style">w</button>
+                    <button id="x" class="btn btn-style">x</button>
+                    <button id="y" class="btn btn-style">y</button>
+                    <button id="z" class="btn btn-style">z</button>
 
                 </div>
             </div>
+        </div>
     </main>
     <footer style="display: flex;">
         <div id="footerabajo">
-            <div>
+            <div id="movieTittle">
                 <h1 id="playerMovie"></h1>
-                <h3 id="hints"></h3>
+            </div>
+            <div id="theHints">
+                <h5 id="hints"></h5>
             </div>
         </div>
     </footer>
-
-
 
     <!-- Modal Winner  -->
     <div class="modal fade" id="modalWinner" tabindex="-1" role="dialog" aria-labelledby="modalStartGame"
@@ -102,8 +101,9 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary myButton" onclick="initialize()">Jugar De
-                        nuevo</button>
+                    <button id="replay" type="button" class="btn btn-primary myButton">
+                        Jugar De nuevo
+                    </button>
                 </div>
             </div>
         </div>
@@ -117,16 +117,15 @@
         <div class="modal-dialog modal-dialog-centestyle" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Perdiste!</h5>
-                    <h2 class="movieResult" id="movieResult"><br> Pelicula: </h2>
+                    <!-- <h5 class="modal-title" id="modalTitle">Perdiste!</h5> -->
+                    <h2 class="movieResult" id="movieResult"><br><br> Pelicula: </h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
                 <div class="modal-footer">
-
-                    <button type="button" data-dismiss="modal" class="btn btn-primary myButton" onclick="initialize()">
+                    <button id="retry" type="button" data-dismiss="modal" class="btn btn-primary myButton">
                         ¿Reintentar?
                     </button>
                 </div>
@@ -137,29 +136,43 @@
     <div class="modal fade" id="modalMovieForm" tabindex="-1" role="dialog" aria-labelledby="modalStartGame"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centestyle" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-header" id="modalHeader">
                     <h5 class="modal-title" id="modalTitle">Busca una película!</h5>
+
+                </div>
+                <div>
                     <form action="" id="movieForm">
-                        <label for="">Name movie</label>
-                        <input type="text">
-                        <button>Find</button>
+                        <div id="buscador">
+                            <label for="">Name movie</label>
+                            <input type="text" id="inputMovieName">
+                        </div>
+                        <button id="buttonFind">Find</button>
                     </form>
                 </div>
-
+                <div id="movieDataa">
+                    <h5>Resultado:</h5>
+                    <ul id="movieData"></ul>
+                </div>
                 <div class="modal-footer">
-                    <ul>
-                        <p>aqui van las pelis</p>
-                    </ul>
+                    <div>
+                        <button id="randomMovie">Random Movie</button>
+                    </div>
+                    <div>
+                        <button id="load">load</button>
+                    </div>
+                    <div>
+                        <button id="continue" class="continue">
+                            Continue
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-
-    <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>

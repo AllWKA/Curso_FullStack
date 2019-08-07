@@ -7,7 +7,10 @@ body{
    margin: 0;
    font-family: 'Nunito', sans-serif;
 }
-
+.modal-footer{
+   display: flex;
+   justify-content: space-between;
+}
 header{
    background-color: #6c4338;
    /*
@@ -31,6 +34,18 @@ header{
 #pistas{
    display: flex;
    margin-right: 50px;
+
+   font-family: isaacFont;
+   /* height: 100%; */
+   color: #ecb070;
+   text-shadow: 0px 7px 2px #3b1f01;
+   border-width: 5px;
+   border-color: #ecb0706b;
+   border-style: ridge;
+   background-color: #92385086;
+   box-shadow: 7px 4px 3px 3px #3b1f0188;
+   text-shadow: 2px 2px 4px #000000;
+   cursor: pointer;
 }
 
 #isaac {
@@ -76,15 +91,6 @@ main{
    margin-left: 15px;
    margin-right: 15px;
 }
-/* #letras button{
-   margin-left: 45px;
-   margin-bottom: 15px;
-   /* width: 40px; */
-   /* border-radius: 83px; 
-   -moz-border-radius: 83px;
-   -webkit-border-radius: 83px;
-   border: 5px solid darkred;
-} */
 
 .movieResult{
    color: rgb(180, 147, 101);
@@ -100,12 +106,24 @@ footer{
 }
 #footerabajo{
    display: flex;
-   justify-content: center;
    align-content: center;
 }
 #titulopeli{
    display: flex;
    align-items: center;
+}
+#footerabajo{
+   width: 100%;
+}
+#movieTittle{
+   display: flex;
+   width: 40%;
+   justify-content: center;
+}
+#theHints{
+   display: flex;
+   width: 60%;
+   justify-content: center;
 }
 
 .myButton {
@@ -138,6 +156,39 @@ footer{
 .modal-content {
    background: #6c4338;
 }
+
+#modalContent{
+   display: flex;
+   flex-direction: column;
+}
+#modalHeader{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+#modalTitle{
+   margin-left: 35%;
+   margin-bottom: 5px;
+}
+#movieForm{
+   width: 100%;
+}
+#buscador{
+   display: flex;
+   margin-left: 20%;
+   margin-top: 10px;
+}
+label{
+   margin-bottom: 0rem;
+}
+#inputMovieName{
+   margin-left: 7px;
+}
+#buttonFind{
+   margin-left: 45%;
+   margin-top: 5px;
+}
+
  /* opacidad background modal */
 .modal-backdrop.show {
    opacity: 0.8;
@@ -154,8 +205,8 @@ footer{
    flex-direction: column;
 }
 @font-face {
-  font-family: isaacFont;
-  src: url(./fonts/Lacquer-Regular.ttf);
+   font-family: isaacFont;
+   src: url(./fonts/Lacquer-Regular.ttf);
 }
 *{
    font-family: isaacFont;
@@ -197,8 +248,72 @@ footer{
 	padding: 0;
 }
 
-.btn-style:hover {
+.btn-hint {
+   background: #212121;
+	color: #c10000;
+	box-shadow: 0 6px #ab3c3c;
+	transition: none;
+   width: 90px;
+	height: 80px;
+   padding: 0;
+   border-radius: 20%;
+}
+
+.btn-style:hover,.btn-hint:hover {
 	box-shadow: 0 4px #ab3c3c;
 	top: 2px;
 }
 
+#modalMovieForm{
+   color: white;
+}
+#modalMovieForm img{
+   max-width: 100px;
+}
+
+#movieDataa{
+   margin-left: 8px;
+}
+#movieDataa img{
+   margin-top: 8px;
+   margin-left: 35%;
+}
+#inputMovieName{
+   background-color: transparent;
+}
+#modalMovieForm button{
+   border-radius: 50px;
+   font-family: isaacFont;
+   height: 100%;
+   color: #ecb070;
+   text-shadow: 0px 7px 2px #3b1f01;
+   border-width: 5px;
+   border-color: #ecb0706b;
+   border-style: ridge;
+   background-color: #92385086;
+   box-shadow: 7px 4px 3px 3px #3b1f0188;
+   text-shadow: 2px 2px 4px #000000;
+}
+
+#modalMovieForm .modal-footer .continue{
+   background-color: #472121;
+   color: #eaec70;
+   border-color: #be8e5b;
+   cursor: pointer;
+}
+
+
+.hint-style{
+   border-radius:50px;
+   transform: rotate(-9deg);
+   font-family: isaacFont;
+   height: 100%;
+   color: #ecb070;
+   text-shadow: 0px 7px 2px #3b1f01;
+   border-width: 5px;
+   border-color: #ecb0706b;
+   border-style: ridge;
+   background-color: #92385086;
+   box-shadow: 9px 6px 5px 5px #3b1f0188;
+   text-shadow: 2px 2px 4px #000000;
+}
