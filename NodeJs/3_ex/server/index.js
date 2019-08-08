@@ -1,16 +1,20 @@
 const express = require('express')
 const app = express()
+var cors = require('cors');
 
 var todo = {};
 // var ids = [];
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/list', function (req, res) {
+    console.log("get");
     res.send(todo)
 })
 
 app.post('/item', function (req, res) {
+    console.log("post:" + req.body.name);
     var id = newId();
     var newItem = {
         name: req.body.name,

@@ -1,0 +1,12 @@
+.done{
+    text-align: center;
+    text-decoration:line-through;
+}
+*{
+    text-align: center;
+}
+.list{
+    width: 100%;
+    overflow: scroll;
+    height: 50vh;
+}
