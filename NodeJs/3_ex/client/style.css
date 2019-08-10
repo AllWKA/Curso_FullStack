@@ -1,6 +1,7 @@
 .done{
     text-align: center;
     text-decoration:line-through;
+    background-color: rgba(255, 0, 0, 0.185);
 }
 *{
     text-align: center;

@@ -36,12 +36,12 @@ function getList() {
 }
 function postItem(event) {
     event.preventDefault();
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:3000/item",
-        data: { name: "asd" },
-        success: console.log("dddasd")
-    });
+    // $.ajax({
+    //     type: "POST",
+    //     url: "http://localhost:3000/item",
+    //     data: { name: "asd" },
+    //     success: console.log("dddasd")
+    // });
     getList()
 }
 function deleteItem(id) {
