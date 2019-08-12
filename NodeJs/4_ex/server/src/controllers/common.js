@@ -1,3 +1,6 @@
+var users = {};
+var tweets = {};
+
 function newId(list) {
     var keys = []
     var i = 0;

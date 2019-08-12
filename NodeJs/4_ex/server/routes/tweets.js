@@ -1,5 +1,0 @@
-app.delete('/tweet/:id', (req, res) => { })
-app.post('/tweet', (req, res) => { })
-app.get('/tweets', (req, res) => res.send(tweets))
-app.get('/tweet/:id', (req, res) => { })
-app.get('/tweetsSorted', (req, res) => { })

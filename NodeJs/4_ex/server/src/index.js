@@ -1,15 +1,18 @@
 const express = require('express')
-var cors = require('cors');
-var moment = require('moment');
 var consign = require('consign')
 
-var users = {};
-var tweets = {};
-
 const app = express()
-app.use(express.json());
-app.use(cors());
 
 
+
+consign({
+    cwd: __dirname
+})
+    .include("./libs/config.js")
+    // .then('db.js')
+    .then('./routes')
+    .then('./libs/middleware.js')
+    .then('./controllers')
+    .into(app);
 
 app.listen(3000)
