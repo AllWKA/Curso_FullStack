@@ -12,7 +12,7 @@ var User = {
         {
             id: {
                 type: Schema.Types.ObjectId,
-                ref: 'User'
+                ref: 'Tweet'
             }
         }
     ]
