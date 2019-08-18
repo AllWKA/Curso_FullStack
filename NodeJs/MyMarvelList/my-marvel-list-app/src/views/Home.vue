@@ -2,9 +2,17 @@
   <div class="home">
     <Title text="My Marvel List" />
     <Nav />
-    <Carousel category="characters" />
-    <Carousel category="comics" />
-    <Carousel category="series" />
+    <div class="carousel-container">
+      <div class="carousel-containers-row">
+        <Carousel category="characters" />
+      </div>
+      <div class="carousel-containers-row">
+        <Carousel category="comics" />
+      </div>
+      <div class="carousel-containers-row">
+        <Carousel category="series" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,6 +31,21 @@ export default {
 };
 </script>
 <style  scoped>
+.carousel-container {
+  display: flex;
+  flex-flow: column;
+  max-height: 100%;
+}
+.carousel-containers-column {
+  display: flex;
+  flex-flow: column;
+}
+.carousel-containers-row {
+  display: flex;
+  flex-flow: row;
+  max-height: 33.33%;
+}
+
 * {
   color: white;
 }

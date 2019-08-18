@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-container">
+  <div class="carousel-container-final">
     <img
       v-for="(content,i) in contents"
       :key="i"
@@ -40,7 +40,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.carousel-container {
+.carousel-container-final {
   display: flex;
+  flex-flow: row;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 20%;
+}
+img {
+  width: 30%;
+  flex: 1;
 }
 </style>
