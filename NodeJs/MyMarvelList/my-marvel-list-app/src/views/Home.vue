@@ -1,36 +1,29 @@
 <template>
-  <div class="fullscreen">
+  <div class="home">
     <Title text="My Marvel List" />
-    <NavBar />
-    <v-row>
-      <v-col>
-        <Carousel category="characters" />
-      </v-col>
-      <v-col>
-        <Carousel category="comics" />
-      </v-col>
-      <v-col>
-        <Carousel category="series" />
-      </v-col>
-    </v-row>
+    <Nav />
+    <Carousel category="characters" />
+    <Carousel category="comics" />
+    <Carousel category="series" />
   </div>
 </template>
 
 <script>
-import NavBar from "../components/NavBar.vue";
-import Carousel from "../components/Carousel.vue";
-import Title from "../components/Title.vue";
+// @ is an alias to /src
+import Title from "@/components/Title.vue";
+import Nav from "@/components/Nav.vue";
+import Carousel from "@/components/Carousel.vue";
 export default {
+  name: "Home",
   components: {
-    Carousel,
-    NavBar,
-    Title
+    Title,
+    Nav,
+    Carousel
   }
 };
 </script>
-<style scoped>
-.fullscreen {
-  height: 100vh;
-  background-color: red;
+<style  scoped>
+* {
+  color: white;
 }
 </style>

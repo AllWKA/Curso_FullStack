@@ -1,17 +1,17 @@
 <template>
-  <Home />
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
-<script>
-import Home from "./views/Home.vue";
-
-export default {
-  name: "App",
-  components: {
-    Home
-  },
-  data: () => ({
-    //
-  })
-};
-</script>
+<style>
+#app {
+  background-color: black;
+  height: 100vh;
+}
+body {
+  margin: 0px;
+  display: flex;
+  flex-flow: column;
+}
+</style>

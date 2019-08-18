@@ -1,24 +1,14 @@
 <template>
-  <div>
-    <Title :text="'Top ' + category" />
-    <!-- <v-card > -->
-    <v-carousel cycle="true" dark="true" hide-delimiters="true" vertical="true" interval="5000">
-      <v-carousel-item v-for="(content, i) in contents" :key="i">
-        <v-row justify="center">
-          <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
-        </v-row>
-        <v-row justify="center">
-          <h4>#{{i+1}} {{content.name}}</h4>
-          <h4>{{content.title}}</h4>
-        </v-row>
-      </v-carousel-item>
-    </v-carousel>
-    <!-- </v-card> -->
+  <div class="carousel-container">
+    <img
+      v-for="(content,i) in contents"
+      :key="i"
+      :src="content.thumbnail.path+'.'+content.thumbnail.extension"
+    />
   </div>
 </template>
 
 <script>
-import Title from "./Title";
 import axios from "axios";
 import configApi from "../keys";
 export default {
@@ -26,19 +16,14 @@ export default {
   props: {
     category: String
   },
-  components: {
-    Title
-  },
   data() {
     return {
-      document: "#carousel",
-      contents: [],
-      slideIndex: 0,
-      title: "Nothing"
+      contents: []
     };
   },
-  methods: {},
   created() {
+    console.log(configApi.url + this.category + configApi.fastVariable);
+
     axios
       .get(configApi.url + this.category + configApi.fastVariable)
       .then(response => {
@@ -47,7 +32,7 @@ export default {
       })
       .catch(function(error) {
         // handle error
-        console.log(error);
+        console.log("Error::::\n" + error);
       });
   }
 };
@@ -55,12 +40,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-img {
-  height: 50%;
-  width: 50%;
-}
-h4 {
-  color: white;
-  text-align: center;
+.carousel-container {
+  display: flex;
 }
 </style>
