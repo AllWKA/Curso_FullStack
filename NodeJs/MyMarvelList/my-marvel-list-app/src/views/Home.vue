@@ -32,10 +32,10 @@ export default {
 </script>
 <style  scoped>
 .carousel-container {
-  margin-left: 10%;
+  background-color: black;
   display: flex;
   flex-flow: column;
-  max-height: 100%;
+
   align-items: center;
 }
 .carousel-containers-column {
@@ -47,7 +47,9 @@ export default {
   flex-flow: row;
   max-height: 33.33%;
 }
-
+.home {
+  height: 100vh;
+}
 * {
   color: white;
 }

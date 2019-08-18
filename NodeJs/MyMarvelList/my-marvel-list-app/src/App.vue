@@ -7,11 +7,12 @@
 <style>
 #app {
   background-color: black;
-  height: 100vh;
+  height: 100%;
 }
 body {
   margin: 0px;
   display: flex;
+  height: 100%;
   flex-flow: column;
 }
 </style>

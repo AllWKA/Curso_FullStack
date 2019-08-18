@@ -1,13 +1,20 @@
 <template>
-  <div class="carousel-container-final">
-    <a>Back</a>
-    <div v-for="(content,i) in contents" :key="i">
-      <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
-      <h2>Top {{i+1}}</h2>
-      <p>{{content.title}}</p>
-      <p>{{content.name}}</p>
+  <div>
+    <div>
+      <h2>Top {{category}}</h2>
     </div>
-    <a>Continue</a>
+    <div class="carousel-container-final">
+      <a @click="previous">Previous</a>
+      <div v-for="(content,i) in contents" :key="i">
+        <div>
+          <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
+          <h2>Top {{i+1}}</h2>
+          <p>{{content.title}}</p>
+          <p>{{content.name}}</p>
+        </div>
+      </div>
+      <a @click="next">Next</a>
+    </div>
   </div>
 </template>
 
@@ -15,6 +22,38 @@
 import axios from "axios";
 import configApi from "../keys";
 export default {
+  methods: {
+    previous() {
+      this.getContents(this.offset--);
+
+      console.log(this.offset);
+    },
+    next() {
+      this.getContents(this.offset++);
+
+      console.log(this.offset);
+    },
+    getContents() {
+      axios
+        .get(
+          configApi.url +
+            this.category +
+            configApi.fastVariable +
+            "&limit=" +
+            this.limit +
+            "&offset=" +
+            this.offset
+        )
+        .then(response => {
+          // handle success
+          this.contents = response.data.data.results;
+        })
+        .catch(function(error) {
+          // handle error
+          console.log("Error::::\n" + error);
+        });
+    }
+  },
   name: "Carousel",
   props: {
     category: String,
@@ -22,18 +61,11 @@ export default {
   },
   data() {
     return {
-      contents: []
+      contents: [],
+      offset: 1
     };
   },
   created() {
-    console.log(
-      configApi.url +
-        this.category +
-        configApi.fastVariable +
-        "&limit=" +
-        this.limit
-    );
-
     axios
       .get(
         configApi.url +
@@ -57,17 +89,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .carousel-container-final {
+  background-color: rgba(255, 0, 0, 0.507);
+  padding-top: 25px;
   display: flex;
   flex-flow: row;
-  margin: 2.5%;
+  margin: 2%;
   justify-content: center;
   align-items: center;
 }
 .carousel-container-final * {
-  flex: 5;
-  flex-basis: 30%;
+  flex: 1;
+  /* flex-basis: 30%; */
+}
+* {
+  text-align: center;
 }
 img {
-  max-width: 50%;
+  max-width: 90%;
 }
 </style>
