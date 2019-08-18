@@ -1,10 +1,13 @@
 <template>
   <div class="carousel-container-final">
-    <img
-      v-for="(content,i) in contents"
-      :key="i"
-      :src="content.thumbnail.path+'.'+content.thumbnail.extension"
-    />
+    <a>Back</a>
+    <div v-for="(content,i) in contents" :key="i">
+      <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
+      <h2>Top {{i+1}}</h2>
+      <p>{{content.title}}</p>
+      <p>{{content.name}}</p>
+    </div>
+    <a>Continue</a>
   </div>
 </template>
 
@@ -14,7 +17,8 @@ import configApi from "../keys";
 export default {
   name: "Carousel",
   props: {
-    category: String
+    category: String,
+    limit: String
   },
   data() {
     return {
@@ -22,10 +26,22 @@ export default {
     };
   },
   created() {
-    console.log(configApi.url + this.category + configApi.fastVariable);
+    console.log(
+      configApi.url +
+        this.category +
+        configApi.fastVariable +
+        "&limit=" +
+        this.limit
+    );
 
     axios
-      .get(configApi.url + this.category + configApi.fastVariable)
+      .get(
+        configApi.url +
+          this.category +
+          configApi.fastVariable +
+          "&limit=" +
+          this.limit
+      )
       .then(response => {
         // handle success
         this.contents = response.data.data.results;
@@ -43,12 +59,15 @@ export default {
 .carousel-container-final {
   display: flex;
   flex-flow: row;
-  max-width: 100%;
-  flex-wrap: wrap;
-  margin-bottom: 20%;
+  margin: 2.5%;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-container-final * {
+  flex: 5;
+  flex-basis: 30%;
 }
 img {
-  width: 30%;
-  flex: 1;
+  max-width: 50%;
 }
 </style>
