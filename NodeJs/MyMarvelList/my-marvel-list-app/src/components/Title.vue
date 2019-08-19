@@ -1,5 +1,7 @@
 <template>
-  <h1>{{text}}</h1>
+  <router-link to="/">
+    <h1 class="tittle">{{text}}</h1>
+  </router-link>
 </template>
 
 <script>
@@ -16,5 +18,8 @@ export default {
 * {
   color: white;
   text-align: center;
+}
+.tittle:link {
+  cursor: grab;
 }
 </style>

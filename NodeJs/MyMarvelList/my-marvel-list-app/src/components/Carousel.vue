@@ -5,12 +5,14 @@
     </div>
     <div class="carousel-container-final">
       <a @click="previous">Previous</a>
-      <div v-for="(content,i) in contents" :key="i">
+      <div v-for="(content,i) in contents" :key="i" @click="changePage(content.id)">
         <div>
-          <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
-          <h2>Top {{i+1}}</h2>
-          <p>{{content.title}}</p>
-          <p>{{content.name}}</p>
+          <router-link :to="'/content/'+category+'/'+content.id">
+            <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
+            <h2>Top {{i+offset}}</h2>
+            <p>{{content.title}}</p>
+            <p>{{content.name}}</p>
+          </router-link>
         </div>
       </div>
       <a @click="next">Next</a>
@@ -23,15 +25,14 @@ import axios from "axios";
 import configApi from "../keys";
 export default {
   methods: {
+    changePage(id) {
+      // router.push({});
+    },
     previous() {
       this.getContents(this.offset--);
-
-      console.log(this.offset);
     },
     next() {
       this.getContents(this.offset++);
-
-      console.log(this.offset);
     },
     getContents() {
       axios
