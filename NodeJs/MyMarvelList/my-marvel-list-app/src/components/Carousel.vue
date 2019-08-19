@@ -58,12 +58,12 @@ export default {
   name: "Carousel",
   props: {
     category: String,
-    limit: String
+    limit: String,
+    offset: Number
   },
   data() {
     return {
-      contents: [],
-      offset: 1
+      contents: []
     };
   },
   created() {

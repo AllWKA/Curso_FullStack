@@ -4,13 +4,13 @@
     <Nav />
     <div class="carousel-container">
       <div class="carousel-containers-row">
-        <Carousel category="characters" limit="3" />
+        <Carousel category="characters" limit="5" :offset="1" />
       </div>
       <div class="carousel-containers-row">
-        <Carousel category="comics" limit="3" />
+        <Carousel category="comics" limit="6" :offset="1" />
       </div>
       <div class="carousel-containers-row">
-        <Carousel category="series" limit="3" />
+        <Carousel category="series" limit="3" :offset="1" />
       </div>
     </div>
   </div>

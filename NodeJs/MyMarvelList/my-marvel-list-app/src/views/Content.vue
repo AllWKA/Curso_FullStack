@@ -3,9 +3,10 @@
     <Title text="My Marvel List" />
     <Nav />
     <div class="row">
-      <div>
+      <div class="content-section">
+        <h2 v-show="content.name">{{content.name}}</h2>
+        <h2 v-show="content.title">{{content.title}}</h2>
         <img class="profile-img" :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
-        <h2>{{content.name}}</h2>
       </div>
       <div class="column">
         <h2>Description:</h2>
@@ -14,7 +15,7 @@
         <div class="row wrap commics-section">
           <div class="commic-section" v-for="(commic,i) in content.comics.items" :key="i">
             <img class="commic-img" :src="imgs[i]" />
-            <h3>{{commic.name}}</h3>
+            <p>{{commic.name}}</p>
           </div>
         </div>
       </div>
@@ -83,17 +84,22 @@ export default {
 };
 </script>
 <style >
+.content-section {
+  flex: 1;
+  flex-basis: 50%;
+}
 .commic-section {
   background-color: rgba(255, 0, 0, 0.13);
   border: 2px yellow solid;
-  max-width: 70%;
-  max-height: 100%;
+  max-width: 40%;
+  max-height: 40%;
+  flex: 1;
+  flex-basis: 10%;
 }
 .commics-section {
-  max-height: 300px;
-  max-width: 1000px;
   overflow: scroll;
   border: 2px white solid;
+  max-height: 200px;
 }
 .wrap {
   flex-wrap: wrap;
@@ -102,8 +108,8 @@ export default {
   color: white;
 }
 .profile-img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
 }
 .commic-img {
   width: 100%;
@@ -111,10 +117,13 @@ export default {
 }
 .row {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: center; */
+  align-items: center;
   /* flex-wrap: wrap; */
 }
 .column {
+  flex-basis: 50%;
+  flex: 5;
   display: flex;
   flex-flow: column;
 }
