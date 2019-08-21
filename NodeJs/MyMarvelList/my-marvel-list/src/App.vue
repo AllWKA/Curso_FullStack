@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <router-view class></router-view>
 </template>
 
 <script>
@@ -11,3 +11,8 @@ export default {
   })
 };
 </script>
+<style scoped>
+body {
+  background-color: black;
+}
+</style>
