@@ -20,6 +20,8 @@ export default {
 </script>
 <style scoped>
 .nav-bar {
+  padding-left: 2%;
+  padding-right: 3%;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
