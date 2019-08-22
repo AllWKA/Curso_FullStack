@@ -24,13 +24,7 @@ export default {
   data() {
     return {
       showArrows: false,
-      hideDelimiters: true,
-      imgs: [
-        "/img/banner_1.1c6989be.jpg",
-        "/img/banner_2.3cde35b8.jpg",
-        "/img/banner_3.620c5ef8.jpeg",
-        "/img/banner_4.160ecc6b.jpg"
-      ]
+      hideDelimiters: true
     };
   }
 };

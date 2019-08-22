@@ -22,6 +22,7 @@ export default {
   text-align: center;
   min-height: 5%;
   height: 100%;
+  flex: 1;
 }
 h1 {
   /* font-size: 100%; */
