@@ -1,30 +1,34 @@
 <template>
   <div class="top">
-    <div class="top-title">
-      <Title :text="'Top ' + category" />
-    </div>
-    <div class="top-list">
-      <v-list>
-        <v-list-item v-for="(content,i) in contents" :key="i">
-          <div class="item-container">
-            <div class="item-rank">
-              <h3>{{i+1}}#</h3>
-            </div>
-            <div class="item-img">
+    <v-card :height="height">
+      <h2>Top {{category}}</h2>
+      <v-carousel
+        :interval="interval"
+        :cycle="cycle"
+        :show-arrows="showArrows"
+        :hide-delimiters="hideDelimiters"
+        :vertical="vertical"
+      >
+        <v-carousel-item v-for="(content,i) in contents" :key="i">
+          <v-card>
+            <div>
               <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
             </div>
-            <div class="item-info">
+            <v-card-text>
+              <div class="item-rank">
+                <h3>#{{i+1}}</h3>
+              </div>
               <div class="title-item-info">
                 <h3>
                   {{content.title}}
                   {{content.name}}
                 </h3>
               </div>
-            </div>
-          </div>
-        </v-list-item>
-      </v-list>
-    </div>
+            </v-card-text>
+          </v-card>
+        </v-carousel-item>
+      </v-carousel>
+    </v-card>
   </div>
 </template>
 
@@ -39,11 +43,17 @@ export default {
     Title
   },
   props: {
-    category: String
+    category: String,
+    cycle: Boolean,
+    interval: Number
   },
   data() {
     return {
-      contents: []
+      contents: [],
+      showArrows: false,
+      hideDelimiters: true,
+      vertical: true,
+      height: 20
     };
   },
   created() {
@@ -65,30 +75,22 @@ export default {
 </script>
 
 <style>
+img {
+  /* height: 90%; */
+  margin-top: 2%;
+  width: 70%;
+}
 .top {
-  display: flex;
-  flex-flow: column;
-  overflow: scroll;
-  max-height: 100vh;
-}
-.top-list {
-  background-color: black;
-}
-.top-title {
-  flex: 1;
-}
-.item-container {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  /* flex-wrap: wrap; */
+  width: 25%;
 }
 .item-container * {
   flex: 1;
 }
 * {
   text-align: center;
+}
+h2 {
+  margin-bottom: 2%;
 }
 </style>
 

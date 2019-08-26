@@ -5,9 +5,9 @@
       <NavBar />
     </div>
     <div class="content-home">
-      <Top category="comics" />
+      <Top category="comics" :cycle="cycle" />
       <div style="width:50%;"></div>
-      <Top category="characters" />
+      <Top category="characters" :cycle="cycle" />
     </div>
   </div>
 </template>
@@ -28,22 +28,24 @@ export default {
     Banner,
     Top
   },
-  name: "Home"
+  name: "Home",
+  data() {
+    return {
+      cycle: true,
+      interval: 500
+    };
+  }
 };
 </script>
 <style scoped>
 .nav-home {
-  /* display: flex; */
-  /* flex-flow: column; */
-  margin-bottom: 20%;
+  margin-bottom: 1%;
 }
 .content-home {
   display: flex;
   flex-flow: row;
 }
 .home {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-flow: column;
 }
