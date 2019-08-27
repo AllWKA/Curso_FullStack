@@ -6,7 +6,10 @@
     </div>
     <div class="content-home">
       <Top category="comics" :cycle="cycle" />
-      <div style="width:50%;"></div>
+      <div class="news">
+        <Lastest category="comics" />
+        <Lastest category="comics" />
+      </div>
       <Top category="characters" :cycle="cycle" />
     </div>
   </div>
@@ -16,15 +19,15 @@
 import NavButtom from "../components/NavButtom.vue";
 import NavBar from "../components/NavBar.vue";
 import Title from "../components/Title.vue";
-import Carousel from "../components/Carousel.vue";
 import Banner from "../components/Banner.vue";
 import Top from "../components/Top.vue";
+import Lastest from "../components/Lastest.vue";
 export default {
   components: {
     NavButtom,
     NavBar,
     Title,
-    Carousel,
+    Lastest,
     Banner,
     Top
   },
@@ -41,9 +44,16 @@ export default {
 .nav-home {
   margin-bottom: 1%;
 }
+.news {
+  flex-basis: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
 .content-home {
   display: flex;
   flex-flow: row;
+  justify-content: space-between;
 }
 .home {
   display: flex;

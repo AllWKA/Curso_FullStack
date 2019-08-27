@@ -34,14 +34,10 @@
 
 
 <script>
-import Title from "./Title";
 import axios from "axios";
 import marvelConfig from "../marvelConfig";
 export default {
   name: "Top",
-  components: {
-    Title
-  },
   props: {
     category: String,
     cycle: Boolean,
