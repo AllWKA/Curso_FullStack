@@ -10,22 +10,17 @@
         :vertical="vertical"
       >
         <v-carousel-item v-for="(content,i) in contents" :key="i">
-          <v-card>
-            <div>
-              <img :src="content.thumbnail.path+'.'+content.thumbnail.extension" />
-            </div>
-            <v-card-text>
-              <div class="item-rank">
-                <h3>#{{i+1}}</h3>
-              </div>
-              <div class="title-item-info">
-                <h3>
-                  {{content.title}}
-                  {{content.name}}
-                </h3>
-              </div>
-            </v-card-text>
-          </v-card>
+          <Comic
+            v-if="category==='characters'"
+            :title="content.name"
+            :url="content.thumbnail.path+'.'+content.thumbnail.extension"
+          />
+          <Comic
+            v-if="category==='comics'"
+            :title="content.title"
+            :url="content.thumbnail.path+'.'+content.thumbnail.extension"
+          />
+          <h2># {{i+1}}</h2>
         </v-carousel-item>
       </v-carousel>
     </v-card>
@@ -36,8 +31,12 @@
 <script>
 import axios from "axios";
 import marvelConfig from "../marvelConfig";
+import Comic from "./Comic.vue";
 export default {
   name: "Top",
+  components: {
+    Comic
+  },
   props: {
     category: String,
     cycle: Boolean,

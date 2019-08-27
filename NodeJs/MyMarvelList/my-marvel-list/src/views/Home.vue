@@ -8,7 +8,7 @@
       <Top category="comics" :cycle="cycle" />
       <div class="news">
         <Lastest category="comics" />
-        <Lastest category="comics" />
+        <Lastest category="characters" />
       </div>
       <Top category="characters" :cycle="cycle" />
     </div>
