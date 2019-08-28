@@ -1,24 +1,47 @@
 <template>
-  <div class="lastest"></div>
+  <div class="lastest">
+    <div class="comic-item" v-for="(content,i) in contents" :key="i">
+      <Comic
+        v-if="category==='characters'"
+        :title="content.name"
+        :url="content.thumbnail.path+'.'+content.thumbnail.extension"
+      />
+    </div>
+    <div class="pages">
+      <v-pagination :length="length" :total-visible="Number.parseInt(contents.length/3)"></v-pagination>
+    </div>
+  </div>
 </template>
 <style>
 .lastest {
   display: flex;
-  justify-content: space-around;
+  border: 1px solid red;
   flex-wrap: wrap;
+}
+.comic-item {
+  width: calc(100% / 3);
+}
+.pages {
+  width: 100%;
 }
 </style>
 <script>
 import axios from "axios";
 import marvelConfig from "../marvelConfig";
+import Comic from "./Comic.vue";
 export default {
   name: "Lastest",
+  components: {
+    Comic
+  },
   props: {
-    category: String
+    category: String,
+    contentPerPage: Number
   },
   data() {
     return {
-      contents: []
+      contents: [],
+      length: 0
     };
   },
   created() {
@@ -30,6 +53,10 @@ export default {
         console.log(response.data.data.results);
 
         this.contents = response.data.data.results;
+        this.length = Number.parseInt(
+          this.contents.length / this.contentPerPage
+        );
+        console.log(this.length);
       })
       .catch(function(error) {
         // handle error

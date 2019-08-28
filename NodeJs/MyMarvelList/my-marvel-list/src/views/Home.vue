@@ -7,8 +7,8 @@
     <div class="content-home">
       <Top category="comics" :cycle="cycle" />
       <div class="news">
-        <Lastest category="comics" />
-        <Lastest category="characters" />
+        <Lastest category="comics" :contentPerPage="contentPerPage" />
+        <Lastest category="characters" :contentPerPage="contentPerPage" />
       </div>
       <Top category="characters" :cycle="cycle" />
     </div>
@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       cycle: true,
-      interval: 500
+      interval: 500,
+      contentPerPage: 3
     };
   }
 };
