@@ -19,6 +19,6 @@
   "homepage": "https://github.com/thaishdz/ahorcado#readme",
   "devDependencies": {
     "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.12"
   }
 }
